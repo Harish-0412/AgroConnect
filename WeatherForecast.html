@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="WeatherForecast.css">
+    <link rel="website icon" type="png" href="farmer’s..png">
+    <!-- Leaflet CSS and JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+</head>
+<body>
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="3224615-hd_1920_1080_24fps.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      
+      <section class="welcome" id="welcome">
+        <h1>Weather Forecast !!</h1>
+      </section>
+      
+
+
+    <nav class="navbar">
+        <div class="brand">AgroConnect</div>
+        <button class="toggle-btn" onclick="toggleNav()">☰</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="MainPage.html">Home</a></li>
+          <li><a href="WeatherForecast.html">Weather</a></li>
+          <li><a href="SeedRecords.html">Seeds</a></li>
+          <li><a href="SoilManagement.html">Soil</a></li>
+          <li><a href="Fertilizers.html">Fertilizers</a></li>
+          <li><a href="Market.html">Prices</a></li>
+        </ul>
+      </nav>
+
+      
+
+
+
+      <section class="weather">
+        <div class="weather-box">
+          <h2>Check Weather in Your Location</h2>
+          <input type="text" id="locationInput" placeholder="Enter a city or place..." />
+          <div>
+            <button onclick="getWeather()"><span>Get Weather</span></button>
+            <button id="toggleVoiceBtn" onclick="toggleVoice()"><span>Enable Voice</span></button>
+
+          </div>
+          <div id="weatherResult"></div>
+        </div>
+      </section>
+
+      
+        <section class="weather-map">
+          <h2>Location Map</h2>
+          <div id="map" style="height: 400px; border-radius: 10px; overflow: hidden;"></div>
+        </section>
+
+
+        <section class="forecast-section">
+          <h2>5-Day Weather Forecast</h2>
+          <div id="forecastContainer" class="forecast-grid"></div>
+
+          </div>
+          
+        </section>
+        
+        <canvas id="tempChart" width="400" height="200"></canvas>
+
+
+      <section class="weather-history">
+        <h2>Weather Request History</h2>
+        <table id="historyTable">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Location</th>
+              <th>Temperature (°C)</th>
+              <th>Condition</th>
+              <th>Recommendation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dynamic rows will be inserted here -->
+          </tbody>
+        </table>
+      </section>
+      
+
+
+    <script src="WeatherForecast.js"></script>
+    
+
+</body>
+</html>

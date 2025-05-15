@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Market Prices - Seeds & Fertilizers</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      
+      background-size: cover;
+      color: #1b4332;
+      overflow-y: scroll;
+    }
+    header {
+      background-color: #407355;
+      padding: 1rem;
+      text-align: center;
+      color: white;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    .location {
+      font-size: 1rem;
+      font-weight: normal;
+      margin-top: 0.4rem;
+    }
+    .container {
+      display: flex;
+      justify-content: space-around;
+      padding: 2rem;
+      flex-wrap: wrap;
+    }
+    .box {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      width: 40%;
+      min-width: 320px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .product {
+      background-color: #e9f5ee;
+      padding: 0.8rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .product button {
+      padding: 0.4rem 0.8rem;
+      background-color: #2d6a4f;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .checkout-button {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .checkout-button button {
+      padding: 0.7rem 1.4rem;
+      font-size: 1rem;
+      background-color: #1b4332;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .checkout-button button:hover {
+      background-color: #2d6a4f;
+    }
+
+    .bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Behind everything */
+  }
+  
+  /* Welcome text block */
+  .welcome {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all 1s ease;
+    background-color: rgba(255, 255, 255, 0.4); /* Optional glass effect */
+  }
+  
+  .welcome h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #1b4332;
+    letter-spacing: 2px;
+    transition: all 1s ease;
+    opacity: 1;
+  }
+  
+  /* Scroll up effect */
+  .welcome.hidden {
+    transform: translateY(-200px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  </style>
+</head>
+<body onload="initMarketPage()">
+
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="4763824-uhd_3840_2160_24fps.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      
+      <section class="welcome" id="welcome">
+        <h1>Market Prices</h1>
+      </section>
+
+
+  <header>
+    Market Prices - Seeds & Fertilizers
+    <div class="location" id="locationDisplay">Detecting location...</div>
+  </header>
+
+  <div class="container">
+    <div class="box">
+      <h2>Available Seeds</h2>
+      <div id="productList"></div>
+      <h2>Soil Information</h2>
+      <p>Soil type: Loamy<br>pH: 6.5<br>Moisture: Moderate</p>
+    </div>
+
+    <div class="box">
+      <h2>🛒 Cart</h2>
+      <ul id="cartItems"></ul>
+      <div class="checkout-button">
+        <button onclick="checkout()">📄 Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleNav() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("show");
+  }
+  window.addEventListener("scroll", () => {
+    const welcome = document.getElementById("welcome");
+    if (window.scrollY > 100) {
+      welcome.classList.add("hidden");
+    } else {
+      welcome.classList.remove("hidden");
+    }
+  });
+
+
+    const products = [
+      { name: "Wheat", price: 800 },
+      { name: "Rice", price: 900 },
+      { name: "Maize", price: 750 },
+      { name: "Pulses", price: 700 },
+      { name: "Urea", price: 300 },
+      { name: "DAP", price: 450 },
+      { name: "Potash", price: 550 },
+      { name: "Mustard", price: 950 },
+      { name: "Sunflower", price: 870 },
+      { name: "Cotton", price: 1200 },
+      { name: "Groundnut", price: 1100 },
+      { name: "Zinc Sulphate", price: 320 }
+    ];
+
+    let cart = [];
+
+    function initMarketPage() {
+      displayProducts();
+      loadCart();
+      detectLocation();
+    }
+
+    function displayProducts() {
+      const list = document.getElementById("productList");
+      products.forEach(product => {
+        const div = document.createElement("div");
+        div.className = "product";
+        div.innerHTML = `
+          ${product.name} - ₹${product.price}
+          <button onclick="addToCart('${product.name}', ${product.price})">Add</button>
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartDisplay();
+    }
+
+    function loadCart() {
+      const saved = localStorage.getItem("cart");
+      if (saved) {
+        cart = JSON.parse(saved);
+        updateCartDisplay();
+      }
+    }
+
+    function updateCartDisplay() {
+      const ul = document.getElementById("cartItems");
+      ul.innerHTML = "";
+      cart.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - ₹${item.price}`;
+        ul.appendChild(li);
+      });
+    }
+
+    function checkout() {
+      alert("Proceeding to checkout with " + cart.length + " item(s).");
+      // You can extend this to show a payment screen or save to database
+    }
+
+    function detectLocation() {
+      if (!navigator.geolocation) {
+        document.getElementById("locationDisplay").textContent = "Location not supported.";
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(async (pos) => {
+        const lat = pos.coords.latitude;
+        const lon = pos.coords.longitude;
+        try {
+          const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`);
+          const data = await res.json();
+          document.getElementById("locationDisplay").textContent = data.display_name;
+        } catch (err) {
+          document.getElementById("locationDisplay").textContent = `Lat: ${lat}, Lon: ${lon}`;
+        }
+      });
+    }
+  </script>
+</body>
+</html>

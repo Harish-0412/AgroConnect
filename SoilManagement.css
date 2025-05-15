@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: rgb(0, 0, 0); /* Light greenish background */
+  }
+  
+  
+  
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(45, 106, 79, 0.9); /* Semi-transparent */
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0 0 15px 15px; /* bottom rounded only */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Always on top */
+  }
+  
+  /* Add space below navbar to push content */
+  .welcome {
+    margin-top: 80px; /* Adjust depending on navbar height */
+  }
+  
+  
+  
+  .brand {
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  
+  .toggle-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    background-color: #40916c;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  
+  /* New, clean hover effect */
+  .nav-links li a:hover {
+    background-color: #52b788;
+    letter-spacing: 0.5px;
+    transform: scale(1.05);
+  }
+
+  .form-section {
+    max-width: 600px;
+    margin: 4rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    
+  }
+  
+  .form-section h1 {
+    margin-bottom: 1rem;
+    color: #1b4332;
+  }
+  
+  label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    font-weight: bold;
+  }
+  
+  input, select, button {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    background-color: #52b788;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background-color: #40916c;
+  }
+  
+  .result-box {
+    margin-top: 2rem;
+    background: #d8f3dc;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Behind everything */
+  }
+  
+  /* Welcome text block */
+  .welcome {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all 1s ease;
+    background-color: rgba(255, 255, 255, 0.4); /* Optional glass effect */
+  }
+  
+  .welcome h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #1b4332;
+    letter-spacing: 2px;
+    transition: all 1s ease;
+    opacity: 1;
+  }
+  
+  /* Scroll up effect */
+  .welcome.hidden {
+    transform: translateY(-200px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .testing-tips {
+    background-color: #fff3cd;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .testing-tips h2 {
+    color: #795548;
+    margin-bottom: 1rem;
+  }
+  
+  .tip {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #fefae0;
+    border-left: 5px solid #d4a373;
+    border-radius: 5px;
+  }
+  
+  .tip h3 {
+    margin-bottom: 0.5rem;
+    color: #6d4c41;
+  }
+
+  @media print {
+    body * {
+      visibility: hidden;
+    }
+  
+    #result, #result * {
+      visibility: visible;
+    }
+  
+    #result {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+  }

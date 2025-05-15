@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<head charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seed Management</title>
+    <link rel="stylesheet" href="SeedRecords.css">
+    <link rel="website icon" type="png" href="farmer’s..png">
+    <!-- Leaflet CSS and JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+</head>
+<body>
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="3613022-uhd_3840_2160_30fps.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      
+      <section class="welcome" id="welcome">
+        <h1>Seed Records !!</h1>
+      </section>
+      
+
+
+    <nav class="navbar">
+        <div class="brand">AgroConnect</div>
+        <button class="toggle-btn" onclick="toggleNav()">☰</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="MainPage.html">Home</a></li>
+          <li><a href="WeatherForecast.html">Weather</a></li>
+          <li><a href="SeedRecords.html">Seeds</a></li>
+          <li><a href="SoilManagement.html">Soil</a></li>
+          <li><a href="Fertilizers.html">Fertilizers</a></li>
+          <li><a href="Market.html">Prices</a></li>
+        </ul>
+      </nav>
+
+      <body>
+        <div class="container">
+          <h1>Seed Sowing Record</h1>
+      
+          <form id="sowingForm">
+            <label>
+              Crop Name 
+              <span title="Enter the name of the crop you are sowing, e.g., Wheat or Rice">ℹ️</span>
+            </label>
+            <input type="text" id="cropName" placeholder="e.g., Wheat, Rice" required />
+          
+            <label>
+              Seed Type 
+              <span title="Specify seed type, e.g., Hybrid, Heirloom, Local variety">ℹ️</span>
+            </label>
+            <input type="text" id="seedType" placeholder="e.g., Hybrid, Heirloom" required />
+          
+            <label>
+              Sowing Date 
+              <span title="Select the date when you planted or will plant the seeds">ℹ️</span>
+            </label>
+            <input type="date" id="sowingDate" required />
+          
+            <label>
+              Field/Plot Number 
+              <span title="Mention the field number or name for tracking, e.g., Plot 3B">ℹ️</span>
+            </label>
+            <input type="text" id="fieldNumber" placeholder="e.g., Plot 3B, Field #7" required />
+          
+            <label>
+              Additional Notes 
+              <span title="Any other info like fertilizer used, irrigation method, etc.">ℹ️</span>
+            </label>
+            <textarea id="notes" placeholder="e.g., Used drip irrigation or added compost..."></textarea>
+          
+            <button type="submit">Add Record</button>
+          </form>
+          
+      
+          <h2>History</h2>
+          <table id="recordTable">
+            <thead>
+              <tr>
+                <th>Crop</th>
+                <th>Seed Type</th>
+                <th>Sowing Date</th>
+                <th>Field</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </body>
+      <div class="calendar-section">
+        <h2 class="calendar-heading">🌾 Ideal Sowing Calendar</h2>
+        <div id="calendarContainer">
+          <div class="calendar-header-container">
+            <button id="prevMonth">◀</button>
+            <h2 id="calendarHeader">Month Year</h2>
+            <button id="nextMonth">▶</button>
+          </div>
+          <div id="calendar"></div>
+          
+          <div id="dayNames">
+            <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+          </div>
+          <div id="calendar"></div>
+        </div>
+      </div>
+      
+      
+
+      
+      <script src="SeedRecords.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  background-color: #0d3f2c;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(36, 85, 64, 0.95);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  border-bottom: 2px solid #52b788;
+}
+
+.brand {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.toggle-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  background-color: #40916c;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+  background-color: #95d5b2;
+  color: #003d29;
+  transform: scale(1.08);
+}
+
+/* Welcome section */
+.welcome {
+  margin-top: 120px;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+}
+
+.welcome h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.welcome p {
+  font-size: 1.2rem;
+}
+
+/* Fertilizer content */
+.fertilizer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.card {
+  background-color: rgba(82, 183, 136, 0.9);
+  padding: 1.5rem;
+  border-radius: 15px;
+  max-width: 300px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card p,
+.card ul {
+  font-size: 1rem;
+}
+
+.card ul {
+  padding-left: 1rem;
+}
+
+.fertilizer-tool {
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  
+  .fertilizer-tool h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #b7e4c7;
+  }
+  
+  #cropSelect {
+    padding: 0.7rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 1rem;
+  }
+  
+  .recommendation-box {
+    margin-top: 1rem;
+    background-color: #52b788;
+    padding: 1rem;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    display: none;
+  }

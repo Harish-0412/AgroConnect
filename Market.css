@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: rgb(0, 0, 0);
+    color: #fff;
+    overflow-x: hidden;
+  }
+  
+  /* Video background */
+  .bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 1;
+  }
+
+  .backdrop-blur {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  /* Navbar */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(45, 106, 79, 0.4); /* more transparent */
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  
+  .welcome {
+    margin-top: 80px;
+    text-align: center;
+  }
+  
+  .brand {
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  .toggle-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    background-color: #40916c;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  
+  .nav-links li a:hover {
+    background-color: #52b788;
+    letter-spacing: 0.5px;
+    transform: scale(1.05);
+  }
+  .bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Behind everything */
+  }
+  
+  /* Welcome text block */
+  .welcome {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all 1s ease;
+    background-color: rgba(255, 255, 255, 0.4); /* Optional glass effect */
+  }
+  
+  .welcome h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #1b4332;
+    letter-spacing: 2px;
+    transition: all 1s ease;
+    opacity: 1;
+  }
+  
+  /* Scroll up effect */
+  .welcome.hidden {
+    transform: translateY(-200px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .header {
+  background: #40916c;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.market-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 2rem;
+}
+
+.market-info, .cart {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 45%;
+  min-width: 300px;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: #1b4332;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 1rem;
+  background: #e9f5ee;
+  padding: 0.8rem;
+  border-radius: 5px;
+}
+
+button {
+  background: #40916c;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+button:hover {
+  background: #52b788;
+}
+.seed-card {
+  background: #e9f5ee;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 220px;
+  color: #1b4332; /* Dark green for visibility */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-weight: 500;
+}
+.checkout-button button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #1b4332;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkout-button button:hover {
+  background-color: #2d6a4f;
+}

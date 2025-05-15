@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Usage</title>
+    <link rel="stylesheet" href="Fertilizers.css">
+    <link rel="website icon" type="png" href="farmer’s..png">
+    
+
+
+</head>
+<body>
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="2711116-uhd_3840_2160_24fps.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      
+      <section class="welcome" id="welcome">
+        <h1>Fertilizer Usage</h1>
+      </section>
+
+      
+      
+
+
+    <nav class="navbar">
+        <div class="brand">AgroConnect</div>
+        <button class="toggle-btn" onclick="toggleNav()">☰</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="MainPage.html">Home</a></li>
+          <li><a href="WeatherForecast.html">Weather</a></li>
+          <li><a href="SeedRecords.html">Seeds</a></li>
+          <li><a href="SoilManagement.html">Soil</a></li>
+          <li><a href="Fertilizers.html">Fertilizers</a></li>
+          <li><a href="Market.html">Prices</a></li>
+        </ul>
+      </nav>
+
+          <section class="welcome" id="welcome">
+        <h1>Fertilizer Usage Guide</h1>
+        <p>Understand how, when, and what fertilizers to apply for healthier crops and higher yields.</p>
+    </section>
+
+    <section class="fertilizer-content">
+        <div class="card">
+            <h2>Types of Fertilizers</h2>
+            <ul>
+                <li><strong>Nitrogen (N):</strong> Promotes leaf growth.</li>
+                <li><strong>Phosphorus (P):</strong> Supports root & flower development.</li>
+                <li><strong>Potassium (K):</strong> Strengthens overall plant health.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Application Tips</h2>
+            <p>Apply fertilizers based on soil test reports. Avoid over-fertilization to protect soil and environment.</p>
+        </div>
+
+        <div class="card">
+            <h2>Organic Options</h2>
+            <p>Use compost, cow dung, neem cake, and green manure for eco-friendly farming.</p>
+        </div>
+    </section>
+
+    <section class="fertilizer-tool">
+        <h2>Get Fertilizer Recommendation by Crop</h2>
+        <select id="cropSelect" onchange="recommendFertilizer()">
+            <option value="">-- Select Crop --</option>
+            <option value="rice">Rice</option>
+            <option value="wheat">Wheat</option>
+            <option value="cotton">Cotton</option>
+            <option value="sugarcane">Sugarcane</option>
+            <option value="maize">Maize</option>
+            <option value="potato">Potato</option>
+            <option value="tomato">Tomato</option>
+            <option value="banana">Banana</option>
+            <option value="onion">Onion</option>
+            <option value="groundnut">Groundnut</option>
+            <option value="millet">Millet</option>
+        </select>
+        <div id="recommendation" class="recommendation-box"></div>
+      </section>
+
+      <script src="Fertilizers.js"></script>
+      </body>
+      </html>
